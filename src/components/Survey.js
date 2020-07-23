@@ -32,6 +32,7 @@ const Survey = () => {
         return item
       }
     })
+
     const records = await base("Survey")
       .update(tempItems)
       .catch(err => console.log(err))

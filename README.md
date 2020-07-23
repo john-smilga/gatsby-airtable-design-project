@@ -70,6 +70,10 @@ require("dotenv").config({
 
 .env.development
 
+## Algolia
+
+[algolia](https://www.algolia.com/);
+
 ## Project Steps
 
 - cover setup
