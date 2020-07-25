@@ -97,6 +97,22 @@ const Wrapper = styled.nav`
       grid-template-columns: repeat(3, 1fr);
       max-width: 500px;
     }
+    li {
+      padding: 1rem 0;
+      position: relative;
+    }
+    button {
+      color: var(--clr-white);
+      background: transparent;
+      border: transparent;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      font-weight: 500;
+      padding: 10px 20px;
+      width: 100%;
+      text-transform: capitalize;
+      position: relative;
+    }
   }
 `
 

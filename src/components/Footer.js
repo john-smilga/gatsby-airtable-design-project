@@ -16,9 +16,13 @@ const Wrapper = styled.footer`
   place-items: center;
   background: var(--clr-black);
   text-align: center;
+  padding: 1rem;
   p {
     color: var(--clr-white);
     margin-bottom: 0;
+    @media (max-width: 576px) {
+      font-size: 0.6rem;
+    }
   }
 `
 export default Footer

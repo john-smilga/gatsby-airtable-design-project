@@ -123,7 +123,7 @@ const Wrapper = styled.div`
     .prev,
     .next {
       position: absolute;
-      top: 45%;
+      top: 200px;
       transform: translateY(-50%);
       background: var(--clr-grey-5);
       color: var(--clr-white);
