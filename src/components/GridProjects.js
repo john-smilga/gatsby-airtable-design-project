@@ -45,7 +45,7 @@ const Wrapper = styled.section`
     grid-template-rows: 300px 300px;
     grid-auto-rows: 300px;
   }
-  /* Gotchas!!!!! */
+  /* GOTCHA!!!!! */
   .img {
     height: 100%;
     border-radius: var(--radius);
@@ -77,6 +77,18 @@ const Wrapper = styled.section`
     }
     &:hover .info {
       opacity: 1;
+    }
+  }
+  @media (min-width: 768px) {
+    .tile-layout {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 992px) {
+    .tile-layout {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 250px 250px;
+      grid-auto-rows: 250px;
     }
   }
   @media (min-width: 1200px) {
