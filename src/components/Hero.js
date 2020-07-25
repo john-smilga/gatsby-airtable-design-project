@@ -3,7 +3,6 @@ import Background from "./Background"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi"
-
 const Hero = ({ projects }) => {
   const images = projects.map(item => {
     const {
@@ -32,6 +31,7 @@ const Hero = ({ projects }) => {
           <h1>let your home be inique and stylish</h1>
           <Link to="/projects">Projects</Link>
         </article>
+
         <button className="prev-btn" onClick={() => setIndex(index - 1)}>
           <FiChevronLeft />
         </button>

@@ -2,12 +2,45 @@ import React, { useContext } from "react"
 
 import styled from "styled-components"
 import { Link } from "gatsby"
-const NavLink = () => {
-  return <h4>nav link</h4>
+import { GatsbyContext } from "../context/context"
+const NavLink = ({ page }) => {
+  const { links } = useContext(GatsbyContext)
+  return (
+    <Wrapper>
+      <button>{page}</button>
+      <div className="links">
+        {links.map((link, index) => {
+          const { url, label, icon } = link
+          if (link.page === page) {
+            return (
+              <Link to={url} key={index}>
+                {icon}
+                {label}
+              </Link>
+            )
+          }
+        })}
+        <div className="caret"></div>
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.li`
   padding: 1rem 0;
+  position: relative;
+  button {
+    color: var(--clr-white);
+    background: transparent;
+    border: transparent;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+    padding: 10px 20px;
+    width: 100%;
+    text-transform: capitalize;
+    position: relative;
+  }
   .links {
     position: absolute;
     top: 4rem;
@@ -21,7 +54,6 @@ const Wrapper = styled.li`
     grid-template-columns: 1fr 1fr;
     gap: 1rem 2rem;
     grid-gap: 1rem 4rem;
-
     a {
       display: grid;
       grid-template-columns: auto 1fr;

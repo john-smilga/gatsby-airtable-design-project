@@ -4,8 +4,17 @@ import logo from "../images/logo.svg"
 import { GoThreeBars } from "react-icons/go"
 import { Link } from "gatsby"
 import NavLink from "./NavLink"
-
+import { GatsbyContext } from "../context/context"
 const Navbar = () => {
+  const { isSidebarOpen, showSidebar, links } = useContext(GatsbyContext)
+  const tempLinks = [
+    ...new Set(
+      links.map(link => {
+        return link.page
+      })
+    ),
+  ]
+
   return (
     <Wrapper>
       <div className="nav-center">
@@ -13,20 +22,16 @@ const Navbar = () => {
           <Link to="/">
             <img src={logo} alt="design"></img>
           </Link>
-          <button className="toggle-btn">
-            <GoThreeBars />
-          </button>
+          {!isSidebarOpen && (
+            <button className="toggle-btn" onClick={showSidebar}>
+              <GoThreeBars />
+            </button>
+          )}
         </div>
         <ul className="nav-links">
-          <li>
-            <button>products</button>
-          </li>
-          <li>
-            <button>developers</button>
-          </li>
-          <li>
-            <button>company</button>
-          </li>
+          {tempLinks.map((page, index) => {
+            return <NavLink key={index} page={page}></NavLink>
+          })}
         </ul>
       </div>
     </Wrapper>
@@ -91,22 +96,6 @@ const Wrapper = styled.nav`
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       max-width: 500px;
-
-      li {
-        position: relative;
-      }
-      button {
-        color: var(--clr-white);
-        background: transparent;
-        border: transparent;
-        font-size: 1rem;
-        letter-spacing: 2px;
-        font-weight: 500;
-        padding: 10px 20px;
-        width: 100%;
-        text-transform: capitalize;
-        position: relative;
-      }
     }
   }
 `
