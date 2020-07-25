@@ -9,12 +9,14 @@ import {
   Slider,
   GridProjects,
 } from "../components"
+import SEO from "../components/seo"
 const HomePage = ({ data }) => {
   const {
     allAirtable: { nodes: projects },
   } = data
   return (
     <Layout>
+      <SEO title="Home" />
       <Hero projects={projects} />
       <About />
       <GridProjects projects={projects} title="latest projects" />
