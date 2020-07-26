@@ -30,7 +30,8 @@ const Wrapper = styled.main`
     color: var(--clr-white);
   }
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    color: var(--clr-primary-5);
     margin-bottom: 1.5rem;
   }
   @media (min-width: 800px) {
